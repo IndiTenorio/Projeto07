@@ -14,6 +14,11 @@
 </head>
 
 <body>
+
+  <div class="alert-error">
+    Digite somente números
+  </div>
+
   <div class="container">
     <main class="card">
 
@@ -27,7 +32,7 @@
 
         <div class="input-wrapper">
           <label for="height">Altura (m)</label>
-          <input type="text" placeholder="165" id="height">
+          <input type="text" placeholder="1.65" id="height">
         </div>
 
         <button class="calcular" type="submit">Calcular IMC</button>
@@ -40,9 +45,10 @@
   <div class="modal-wrapper">
     <div class="modal card">
       <h2 class="title">
-        Seu IMC é de 28</h2>
-
-      <button class="close">x</button>
+        
+        <span></span>
+        <button class="close">x</button>
+      </h2>
     </div>
   </div>
 

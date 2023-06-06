@@ -21,7 +21,6 @@
 
   --bg-error: #F03E3E;
   --tt-error: white;
-
 }
 
 body {
@@ -35,6 +34,29 @@ input,
 button {
   font-size: 1.6rem;
   line-height: 2rem;
+}
+
+.alert-error.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alert-error {
+  position: absolute;
+  background-color: var(--bg-error);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .8rem;
+  font-weight: bold;
+  color: var(--tt-error);
+  
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: transform .5s;
 }
 
 
@@ -60,6 +82,7 @@ button {
   font-size: 3.2rem;
   line-height: 4rem;
   color: var(--tt-heading);
+  text-align: center;
 }
 
 form {
@@ -122,8 +145,12 @@ form input::placeholder {
   display: grid;
   place-content: center;
   opacity: 0;
-  visibility: hidden;
+  visibility: hidden; 
+}
 
+.open {
+  opacity: 1;
+  visibility:visible;
 }
 
 .modal {
@@ -139,8 +166,6 @@ form input::placeholder {
   right: 2rem;
   transition: transform .3s;
   color: gray;
-
-
 }
 
 .close:hover {
