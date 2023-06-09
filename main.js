@@ -2,9 +2,18 @@ const form = document.querySelector('form')
 const peso = document.querySelector('#weight')
 const altura = document.querySelector('#height')
 
-const modal = document.querySelector('.modal-wrapper')
-const btnClose = document.querySelector('.close')
-const span = document.querySelector('span')
+const Modal = {
+  wrapper: document.querySelector('.modal-wrapper'),
+  message: document.querySelector('span'),
+  buttonClose: document.querySelector('.close'),
+
+  open: function () {
+    this.wrapper.classList.add('open')
+  },
+  close: function () {
+    this.wrapper.classList.remove('open')
+  }
+}
 
 form.onsubmit = function (event) {
   event.preventDefault()
@@ -13,13 +22,14 @@ form.onsubmit = function (event) {
   const height = Number(altura.value)
 
   const result = IMC(weight, height)
-  modal.classList.add('open')
+
   const mensagem = `Seu IMC é de ${result}`
-  span.innerText = mensagem
+  Modal.message.innerText = mensagem
+  Modal.open()
 }
 
-btnClose.addEventListener('click', function () {
-  modal.classList.remove('open')
+Modal.buttonClose.addEventListener('click', function () {
+  Modal.close()
 })
 
 function IMC(peso, altura) {
